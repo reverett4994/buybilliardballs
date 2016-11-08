@@ -1,0 +1,29 @@
+
+
+<h1 id='listings_page_header'>All Billiard Balls</h1>
+<div id='page_wrapper'>
+  <div class="digg_pagination">
+    <%= will_paginate @balls %>
+  </div>
+</div>
+<br>
+<div id='listing_wrapper'>
+<% @balls.each do |ball| %>
+  <%= link_to ball do %>
+    <div class='listing'>
+      <%= image_tag ball.image.url %>
+      <div id='listing_title' class='sliding-middle-out'><%= ball.title %></div>
+      <div class='listing_desc'>
+        <p><div class='sliding-middle-out'><strong>Price:</strong></div> <%= number_to_currency(ball.price) %></p>
+        <p><div class='sliding-middle-out'><strong>Color:</strong></div> <%= ball.color %></p>
+        <p><div class='sliding-middle-out'><strong>Number:</strong></div> <%= ball.number %></p>
+      </div>
+    </div>
+  <%end%>
+<%end%>
+<div id='page_wrapper'>
+  <div class="digg_pagination">
+    <%= will_paginate @balls %>
+  </div>
+</div>
+</div>

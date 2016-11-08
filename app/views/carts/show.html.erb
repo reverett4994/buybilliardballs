@@ -1,0 +1,47 @@
+<div id="cart_show">
+  <h1>Your Cart</h1>
+    <%if @cart.total==0%>
+      <h1>Your Cart Is Empty!</h1>
+    <%end%>
+    <%@counts.each do |ball,times|%>
+        <%@ball=Ball.where("title LIKE ?",ball)%>
+        <%@ball=@ball.last%>
+        <%= link_to @ball do %>
+          <div class="cart_ball">
+            <%= image_tag @ball.image.url, class:'ball_pic_cart' %>
+            <div class="cart_ball_title">
+              <%=ball%>
+            </div>
+            <div class="cart_ball_q">
+              Quantity: &nbsp;<%=times%>
+          </div>
+            <%if times>1%>
+              <div class="cart_ball_price_mutiple">
+                <%=number_to_currency(@ball.price)%>&nbsp; x &nbsp;<%=times%>
+              </div>
+              <div class="cart_ball_price">
+              Total: &nbsp;<%=number_to_currency(@ball.price * times)%><br>
+            <%else%>
+            <div class="cart_ball_price">
+              Total: &nbsp;<%=number_to_currency(@ball.price * times)%><br>
+            <%end%>
+          </div>
+          </div>
+        <%end%>
+    <%end%>
+    <div id="cart_total">
+      Subtotal:&nbsp;&nbsp; <%= number_to_currency(@cart.total) %>
+    </div>
+  <div id="cart_links">
+    <%= link_to 'Edit', edit_cart_path(@cart) %> |
+    <%= link_to 'Empty', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+  <% if @cart.total >1%>
+    <%= form_tag(mycart_order_path,method:"post") do %>
+        <%= hidden_field_tag 'amount', @cart.total%>
+        <%= button_tag(type:"submit",class:'button_cart') do %>
+          <span>Checkout</span>
+        <%end%>
+    <%end%>
+  <%end%>
+</div>

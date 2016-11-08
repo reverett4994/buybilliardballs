@@ -1,0 +1,1123 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*
+ font-family: 'Cinzel', serif;
+ font-family: 'Playfair Display', serif;
+ */
+
+
+.hidden_field{
+  display: none;
+}
+html{
+  width: 100%;
+  height: 100%;
+}
+body{
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background-color: #f9ebd2;
+}
+
+.alert{
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 30px;
+  color: red;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.notice{
+ margin-top: 20px;
+ font-weight: bold;
+ font-size: 30px;
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ text-align: center;
+}
+
+h1{
+  margin-top: 0;
+}
+a{
+  text-decoration: none;
+}
+#wrapper{
+  width: 100%;
+  height: 110%;
+  background-color: #f9ebd2;
+  margin: 0;
+  margin-top: -15px;
+}
+
+/*******************************************HEADER******************************************************/
+#header{
+  background-color: #b30000;
+  width: 100%;
+  margin: 0;
+  font-size: 20px;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  color: #f9ebd2;
+  border-bottom: 10px solid #333;
+  padding-left: 10px;
+}
+#header a{
+  color: #f9ebd2;
+}
+#logo{
+  font-family: 'Playfair Display', serif;
+  color: #f9ebd2;
+  font-size: 50px;
+  display: block;
+  font-weight: bold;
+}
+#header a:hover{
+  text-decoration: underline;
+}
+#hello{
+  font-size: 16px;
+  margin: 0;
+}
+
+#links a {
+  padding-right: 20px;
+}
+
+/*******************************************HEADER******************************************************/
+
+
+
+/*******************************************BALL LISTINGS******************************************************/
+
+#listings_page_header{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: #800000;
+  font-size: 45px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+#listing_wrapper{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.listing{
+  width: 80%;
+  background-color: #f6e1bc;
+  margin-bottom: 15px;
+  border-bottom: 5px solid #333;
+  border-left: 2px solid #333;
+  border-right: 2px solid #333;
+  height: 215px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  border-radius: 2%;
+}
+.listing img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+          transition:         transform .5s ease-in-out;
+  object-fit: cover;
+  object-position: center;
+  display: inline-block;
+  float: left;
+  margin-right: 35px;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+.listing:hover  img{
+  -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+
+}
+#listing_title{
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  color:#800000 ;
+  font-size: 44px;
+  font-weight: bold;
+  margin-bottom: -5px;
+}
+.listing_desc{
+  font-size: 24px;
+  font-family: 'Cinzel', serif;
+  color:#800000 ;
+
+}
+.listing_desc p{
+  padding: 0px;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.sliding-middle-out {
+	display: inline-block;
+  margin: 0;
+
+}
+.sliding-middle-out:after {
+	content: '';
+	display: block;
+	margin: auto;
+	height: 3px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+.listing:hover .sliding-middle-out:after {
+	width: 100%;
+	background: #800000;
+}
+
+#page_wrapper{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  text-align: center;
+}
+
+
+.digg_pagination {
+  background: #f9ebd2;
+  cursor: default;
+  display: inline-block;
+  /* self-clearing method: */ }
+  .digg_pagination a, .digg_pagination span, .digg_pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .digg_pagination .disabled {
+    color: #999999;
+    border: 1px solid #dddddd; }
+  .digg_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #b30000;
+    color: white;
+    border: 1px solid #333; }
+  .digg_pagination a {
+    text-decoration: none;
+    color: #105cb6;
+    border: 1px solid #333; }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: #000033;
+      border-color: #000033; }
+  .digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .digg_pagination {
+    height: 1%; }
+  *:first-child + html .digg_pagination {
+    overflow: hidden; }
+/*******************************************BALL LISTINGS******************************************************/
+
+
+
+
+/*******************************************BALL SHOW******************************************************/
+#show_wrapper{
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#ball_pic{
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+          transition:         transform .5s ease-in-out;
+  object-fit: cover;
+  object-position: center;
+  display: inline-block;
+  float: left;
+  margin-right: 55px;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+#ball_pic:hover{
+  -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+}
+
+#show_desc{
+  font-size: 30px;
+  font-family: 'Cinzel', serif;
+  color: #333;
+  padding-top: 30px;
+}
+#show_desc p{
+  margin-top: 0;
+}
+
+#add_to_cart{
+  clear: both;
+  text-align: center;
+  margin-top: 200px;
+  border-top: 2px solid #333;
+}
+#add_to_cart label{
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #333;
+}
+
+
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #b30000;
+  border: none;
+  color: #f9ebd2;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+
+
+select {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 20px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+select::-ms-expand {
+    display: none;
+}
+
+
+/*******************************************BALL SHOW******************************************************/
+
+/*
+ font-family: 'Cinzel', serif;
+ font-family: 'Playfair Display', serif;
+ */
+
+/*******************************************BALL SHOW******************************************************/
+
+
+#cart_show{
+  width: 75%;
+  margin-left: auto;
+  margin-right:auto;
+  padding-top: 50px;
+  border: 2px solid #333;
+  border-top: 0px;
+  padding-left: 10px;
+    overflow: hidden;
+}
+#cart_show h1{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+#cart_show h2{
+  font-family: 'Playfair Display', serif;
+}
+
+.ball_pic_cart{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+          transition:         transform .5s ease-in-out;
+  object-fit: cover;
+  object-position: center;
+  display: inline-block;
+  margin-right: 35px;
+  margin-left: 15px;
+  margin-top: 5px;
+  float: left;
+}
+.cart_ball:hover .ball_pic_cart{
+  -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+
+}
+.cart_ball{
+  border-bottom: 1px solid #333;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  text-decoration: none;
+  height: 162px;
+  color: #333;
+  font-size: 23px;
+}
+.cart_ball_title {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  padding-left: 1%;
+  padding-top: 63px;
+  width: 190px;
+}
+.cart_ball_q{
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  padding-left: 2%;
+  padding-top: 63px;
+}
+.cart_ball_price{
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  float: right;
+  padding-right: 80px;
+  padding-top: 63px;
+}
+.cart_ball_price_mutiple{
+  display: inline-block;
+  padding-left: 14%;
+}
+#cart_total{
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  color: #333;
+  font-size: 24px;
+  float: right;
+  padding-right: 80px;
+  margin-top: 10px;
+}
+#cart_links{
+  margin-left: 15px;
+  margin-top: 10px;
+}
+#cart_links a{
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  color: #262626;
+  font-size: 21px;
+}
+#cart_links a:hover{
+  text-decoration: underline;
+}
+
+.button_cart {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #b30000;
+  border: none;
+  color: #f9ebd2;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  float: right;
+  clear: both;
+  margin-right: 40px;
+}
+
+.button_cart span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button_cart span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button_cart:hover span {
+  padding-right: 25px;
+}
+
+.button_cart:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.cart_remove{
+  display: inline-block;
+  margin-left: 50px;
+}
+.cart_remove a:hover{
+  text-decoration: underline;
+}
+.cart_remove a{
+  text-decoration: none;
+  color: #333;
+}
+#edit_cart_title{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+
+/*******************************************BALL SHOW******************************************************/
+
+
+
+/*******************************************CONFIRM ORDER PAGE******************************************************/
+#place_order_div{
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 18px;
+}
+#place_order_div h1{
+  font-family: 'Playfair Display', serif;
+}
+#place_order_div h4{
+  font-family: 'Playfair Display', serif;
+}
+#place_order_div input{
+  width: 100%;
+  padding: 19px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+#place_order_div label{
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+}
+
+#place_order_div .ball_pic_cart{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  display: inline-block;
+  margin-right: 35px;
+  margin-left: 15px;
+  margin-top: 5px;
+  float: left;
+}
+
+#place_order_div .cart_ball{
+  border-bottom: 1px solid #333;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  text-decoration: none;
+  height: 112px;
+  color: #333;
+  font-size: 16px;
+  width: 100%;
+}
+#place_order_div .cart_ball_title {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 20px;
+  padding-top: 43px;
+  width: 190px;
+}
+#place_order_div .cart_ball_q{
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 20px;
+  padding-top: 43px;
+}
+#place_order_div .cart_ball_price{
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  float: right;
+  padding-right: 80px;
+  padding-top: 43px;
+}
+#place_order_div .cart_ball_price_mutiple{
+  display: inline-block;
+  padding-left: 80px;
+}
+#place_order_div #cart_total{
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  color: #333;
+  font-size: 24px;
+  float: right;
+  padding-right: 80px;
+  margin-top: 10px;
+}
+
+.button_cart_order {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #b30000;
+  border: none;
+  color: #f9ebd2;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 100%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  float: right;
+  clear: both;
+  margin-right: 40px;
+  margin-top: 50px;
+}
+
+.button_cart_order span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button_cart_order span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button_cart_order:hover span {
+  padding-right: 25px;
+}
+
+.button_cart_order:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/*******************************************CONFIRM ORDER PAGE******************************************************/
+/*
+ font-family: 'Cinzel', serif;
+ font-family: 'Playfair Display', serif;
+ */
+
+
+/*******************************************ORDER INDEX******************************************************/
+
+
+#order_index_wrapper{
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 13px;
+}
+#order_index_wrapper h1{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+.order_head{
+  background-color: #f6e1bc;
+  height: 75px;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  border-bottom: .5px solid #333;
+  padding-top: 10px;
+}
+.order_head strong{
+  padding-left: 10px;
+}
+.order_head p{
+  margin: 0;
+  display: inline-block;
+}
+.order_head a{
+  text-decoration: none;
+  color: #333;
+  text-decoration: underline;
+}
+.order_preview{
+  border-bottom: 2px solid #333;
+  margin-bottom: 50px;
+  border-left: 2px solid #333;
+  border-right:2px solid #333;
+  border-top:2px solid #333;
+  background-color: #fcf5e9;
+}
+.order_preview img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: inline-block;
+  float: left;
+  margin-right: 20px;
+  margin-left: 5px;
+}
+.order_ball_wrapper p{
+  display: inline-block;
+  margin-top: 50px;
+}
+.order_ball_wrapper{
+  height: 120px;
+  border-bottom: 1px solid #333;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+}
+.order_q{
+  margin-left: 20px;
+}
+
+
+
+/*******************************************ORDER INDEX******************************************************/
+
+
+
+
+
+/*******************************************ORDER SHOW******************************************************/
+
+#order_show_wrapper{
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 13px;
+}
+#order_show_wrapper h1{
+  text-align: center;
+}
+#order_inv_show{
+  border: 2px solid black;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow: hidden;
+  font-size: 18px;
+  margin-bottom: 18px;
+  background-color: #fcf5e9;
+}
+#order_inv_show h2{
+  text-align: center;
+  margin-top: 0px;
+}
+.order_ball{
+  display: inline-block;
+  float: left;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.order_ball_price{
+  display: inline-block;
+  float: right;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+
+/*******************************************ORDER SHOW******************************************************/
+
+
+/*******************************************CONTACT******************************************************/
+
+
+#contact_wrapper{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 5em;
+}
+#contact_wrapper h1{
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 25px;
+  color: #800000;
+}
+#contact_wrapper h2{
+  font-family: 'Playfair Display', serif;
+  color: #800000;
+}
+#contact_wrapper input{
+  width: 51%;
+  padding: 15px 17px;
+  margin-bottom: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#contact_wrapper input:focus{
+  border: 1px solid #b30000;
+}
+#contact_wrapper textarea{
+  width: 75%;
+  height: 150px;
+  max-width: 100%;
+  padding: 15px 17px;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#contact_wrapper textarea:focus{
+  border: 1px solid #b30000;
+}
+#sent_mail_wrapper{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 2em;
+}
+#sent_mail_wrapper h1{
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 25px;
+  color: #800000;
+}
+#sent_mail_wrapper h2{
+  font-family: 'Playfair Display', serif;
+  color: #800000;
+}
+/*******************************************CONTACT******************************************************/
+
+
+
+/********************************************USER FORMS******************************************/
+
+#user_form{
+
+ width: 50%;
+ margin-left: auto;
+ margin-right: auto;
+}
+#user_form label{
+ margin: 5px;
+}
+
+#user_form input{
+ width: 80%;
+ padding: 10px;
+ margin: 8px;
+ border: 1px solid #bfbfbf;
+}
+
+#user_form input:focus{
+ border: 2px solid #b30000;
+}
+
+#user_form .button_user:hover{
+ background-color: #b30000;
+ color: white;
+}
+
+
+#userlogin_form{
+
+ width: 50%;
+ margin-left: auto;
+ margin-right: auto;
+}
+#userlogin_form label{
+ margin: 5px;
+}
+
+#userlogin_form input{
+ width: 80%;
+ padding: 10px;
+ margin: 8px;
+ border: 1px solid #bfbfbf;
+}
+
+#userlogin_form input:focus{
+ border: 2px solid #b30000;
+}
+
+#userlogin_form .button_user:hover{
+ background-color: #81BABA;
+ color: white;
+}
+#userlogin_form .check{
+ width: auto;
+}
+/********************************************USER FORMS******************************************/
+
+
+/********************************************MEDIA QUERIYS******************************************/
+@media only screen and (max-width: 1575px){
+    #place_order_div .cart_ball_price_mutiple{
+      padding-left: 20px;
+  }
+   #place_order_div .cart_ball_q{
+     padding-left: 20px;
+  }
+  #place_order_div .cart_ball_title{
+    padding-left: 0;
+    width: 125px;
+  }
+}
+@media only screen and (max-width: 1420px){
+  .cart_ball_price_mutiple{
+    padding-left:5%;
+  }
+  #place_order_div .cart_ball img{
+    width: 60px;
+    height: 60px;
+    padding-top: 20px;
+  }
+}
+@media only screen and (max-width: 1300px){
+  #place_order_div .cart_ball_q{
+    padding-left: 5px;
+ }
+ #place_order_div .cart_ball_price_mutiple{
+   padding-left: 5px;
+}
+  #cart_show{
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 1200px){
+  #place_order_div .cart_ball_price{
+    padding: 0;
+    clear: both;
+    border-top: .1px solid #333;
+  }
+  #place_order_div #cart_total{
+    float: right;
+    padding-right: 0;
+  }
+  #order_index_wrapper{
+    width: 90%;
+  }
+  .cart_ball_price_mutiple{
+    display: none;
+  }
+}
+@media only screen and (max-width: 1140px){
+
+  #ball_pic{
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #show_desc{
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 950px){
+  #listing_wrapper{
+    width: 100%;
+  }
+  .ball_pic_cart{
+    height: 100px;
+    width: 100px;
+  }
+  .cart_ball{
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 850px){
+  .listing{
+    width: 100%;
+    overflow: hidden;
+  }
+  #order_index_wrapper{
+    width: 95%;
+  }
+  .order_head {
+    font-size: 15px;
+  }
+  #place_order_div{
+    width: 80%;
+  }
+  #place_order_div .button_cart_order{
+    float: none;
+  }
+}
+@media only screen and (max-width: 680px){
+  #place_order_div{
+    width: 98%;
+  }
+  #place_order_div .button_cart_order{
+    margin-left: 3px;
+    margin-right: 3px
+  }
+  .cart_ball_title{
+    width: 120px;
+  }
+  #links a{
+    display: block;
+  }
+  #contact_wrapper{
+    width: 100%;
+  }
+  #order_inv_show{
+    font-size: 17px;
+  }
+}
+@media only screen and (max-width: 600px){
+  .cart_ball_price{
+    padding: 0;
+    clear: both;
+    border-top: .1px solid #333;
+  }
+  #cart_total{
+    padding-right: 0;
+  }
+  #ball_pic{
+    height: 300px;
+    width: 300px;
+  }
+  .listing img{
+    height: 100px;
+    width: 100px;
+    margin-bottom: 100%;
+    margin-top: 50px;
+  }
+  #listing_title{
+    font-size: 30px;
+  }
+  #user_form{
+  width: 100%;
+}
+#userlogin_form{
+  width: 100%;
+}
+#order_show_wrapper{
+  width: 98%;
+}
+}
+@media only screen and (max-width: 450px){
+  #place_order_div .cart_ball_price_mutiple{
+    padding-top: 0px;
+}
+ #place_order_div .cart_ball_q{
+   padding-top: 0px;
+}
+#place_order_div .cart_ball_title{
+  padding-top: 10px;
+}
+  .cart_ball_q{
+    padding-top: 0;
+  }
+  #logo{
+    font-size: 40px;
+  }
+  #listing_title{
+    font-size: 20px;
+  }
+  .listing_desc{
+    font-size: 18px;
+  }
+  #add_to_cart{
+    width: 100%;
+  }
+  #amount{
+    margin-left: 0;
+  }
+  .order_ball_wrapper p{
+    display: block;
+    margin: 0;
+  }
+  .order_q{
+    margin: 0;
+  }
+  .order_ball_wrapper p{
+    margin-top: 25px;
+  }
+}
+@media only screen and (max-width: 400px){
+  #show_wrapper{
+    width: 100%;
+  }
+  .listing_desc{
+    font-size: 15px;
+  }
+  .order_head{
+    height:100px;
+  }
+  .order_head p {
+    display: block;
+  }
+}
+
+/********************************************MEDIA QUERIYS******************************************/
+#place_order_div .button_cart_order{
+  float: none;
+}

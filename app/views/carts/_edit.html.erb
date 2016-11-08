@@ -1,0 +1,32 @@
+<%= form_for(@cart) do |f| %>
+  <% if @cart.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cart.errors.count, "error") %> prohibited this cart from being saved:</h2>
+
+      <ul>
+      <% @cart.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%@counter=0%>
+
+  <%@cart.balls.each do |ball|%>
+    <%@ball=Ball.where("title LIKE ?",ball.title)%>
+    <%@ball=@ball.last%>
+    <div class="cart_ball">
+      <%= image_tag @ball.image.url, class:'ball_pic_cart' %>
+      <div class="cart_ball_title">
+        <%=ball.title%>
+      </div>
+      <div class="cart_ball_price">
+        <%=number_to_currency(@ball.price)%><br>
+      </div>
+      <div class="cart_remove">
+        <%=link_to 'Remove From Cart',mycart_remove_path(counter:ball.id,cart:@cart),data: { confirm: 'Are you sure?' }%><br>
+      </div>
+    </div>
+    <%@counter+=1%>
+  <%end%>
+<% end %>

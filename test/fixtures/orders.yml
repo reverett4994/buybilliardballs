@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 9.99
+  ship_street: MyString
+  ship_city: MyString
+  ship_state: MyString
+  ship_zip: MyString
+  shipping: 9.99
+
+two:
+  price: 9.99
+  ship_street: MyString
+  ship_city: MyString
+  ship_state: MyString
+  ship_zip: MyString
+  shipping: 9.99

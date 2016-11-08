@@ -1,0 +1,121 @@
+
+<div id="place_order_div">
+  <h1>Shipping Info</h1>
+  <form id="checkout" method="post" action="/checkout">
+    <%= label_tag(:first_name, "First Name") %><br>
+    <%= text_field_tag(:first_name, current_user.first_name) %>
+    <br>
+    <%= label_tag(:last_name, "Last Name") %><br>
+    <%= text_field_tag(:last_name, current_user.last_name) %>
+    <br>
+    <%= label_tag(:customer_email, "Your Email") %><br>
+    <%= text_field_tag(:customer_email, current_user.email) %>
+    <br>
+    <%= label_tag(:street, "Street Address") %><br>
+    <%= text_field_tag(:street, current_user.street) %>
+    <br>
+    <%= label_tag(:city, "City") %><br>
+    <%= text_field_tag(:city, current_user.city) %>
+    <br>
+    <%= label_tag(:state, "State") %><br>
+    <%= text_field_tag(:state, current_user.state) %>
+    <br>
+    <%= label_tag(:zip, "Zip Code") %><br>
+    <%= text_field_tag(:zip, current_user.zip) %>
+    <h1>Payment Info</h1>
+    <h4>(Info Sent though Braintree a PayPal Company)</h4>
+
+    <div id="payment-form"></div>
+    <h1>Order Info</h1>
+    <%@counts.each do |ball,times|%>
+        <%@ball=Ball.where("title LIKE ?",ball)%>
+        <%@ball=@ball.last%>
+          <div class="cart_ball">
+            <%= image_tag @ball.image.url, class:'ball_pic_cart' %>
+            <div class="cart_ball_title">
+              <%=ball%>
+            </div>
+            <div class="cart_ball_q">
+              Quantity: &nbsp;<%=times%>
+          </div>
+            <%if times>1%>
+              <div class="cart_ball_price_mutiple">
+                <%=number_to_currency(@ball.price)%>&nbsp; x &nbsp;<%=times%>
+              </div>
+              <div class="cart_ball_price">
+              Total: &nbsp;<%=number_to_currency(@ball.price * times)%><br>
+            <%else%>
+            <div class="cart_ball_price">
+              Total: &nbsp;<%=number_to_currency(@ball.price * times)%><br>
+            <%end%>
+          </div>
+          </div>
+        <%end%>
+        <div id="cart_total">
+          Subtotal:&nbsp;&nbsp; <%= number_to_currency(@cart.total) %>
+        </div>
+        <%= button_tag(type:"submit",class:'button_cart_order') do %>
+          <span>Place Order</span>
+        <%end%>  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://js.braintreegateway.com/js/braintree-2.20.0.min.js"></script>
+<script>
+// We generated a client token for you so you can test out this code
+// immediately. In a production-ready integration, you will need to
+// generate a client token on your server (see section below).
+var clientToken = "<%= @token %>";
+braintree.setup(clientToken, "dropin", {
+  container: "payment-form"
+});
+</script>

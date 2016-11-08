@@ -1,0 +1,28 @@
+<div id="order_index_wrapper">
+  <h1>Listing All Your Orders</h1>
+
+  <%@orders.each do |order| %>
+    <div class="order_preview">
+      <div class="order_head">
+        <p><strong>Order Total:&nbsp;</strong><%=number_to_currency(order.price)%></p>
+        <p><strong>Order Placed:&nbsp;</strong><%=local_time(order.created_at.to_formatted_s(:long_ordinal)) %></p>
+        <p><strong>Order Number:&nbsp;</strong><%=order.sale_id%></p>
+        <p><strong>Order Recipt:&nbsp;</strong><%=link_to 'Recipt',order%></p>
+      </div>
+      <%@counts = Hash.new 0%>
+      <%order.balls.each do |word|%>
+        <%@counts[word.title] += 1%>
+      <%end%>
+
+      <%@counts.each do |ball,times|%>
+      <div class="order_ball_wrapper">
+        <%@ball=Ball.where("title LIKE ?",ball)%>
+        <%@ball=@ball.last%>
+        <%= image_tag @ball.image.url %>
+        <p><%=ball%></p><p class='order_q'>Quantity: &nbsp;<%=times%></p>
+      </div>
+
+      <%end%>
+    </div>
+  <%end%>
+</div>

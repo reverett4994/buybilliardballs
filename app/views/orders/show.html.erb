@@ -1,0 +1,42 @@
+<div id="order_show_wrapper">
+  <h1>Recipt For Order #<%=@order.sale_id%></h1>
+  <div id="order_inv_show">
+    <h2>Product List</h2>
+        <strong class="order_ball">Balls Ordered:</strong>
+        <strong class='order_ball_price'>Price:</strong><br>
+        <%@counts.each do |ball,times|%>
+          <%@ball=Ball.where("title LIKE ?",ball)%>
+          <%@ball=@ball.last%>
+          <p class="order_ball"><%=times%>x&nbsp; <%=ball%></p> <p class='order_ball_price'><%=number_to_currency(@ball.price*times)%></p><br>
+      <%end%>
+        <p class="order_ball"><strong>Total:</strong></p> <p class='order_ball_price'><strong><%=number_to_currency(@order.price)%></strong></p><br>
+  </div>
+  <div id="order_inv_show">
+    <h2>Order Information</h2>
+    <strong>Order Number:</strong>
+    <%=@order.sale_id%>
+    <br>
+    <strong>Payment Type:</strong>
+    <%= @order.payment_type %>
+    <br>
+    <strong>Price:</strong>
+    <%= number_to_currency(@order.price) %>
+    <br>
+    <strong>User:</strong>
+    <%= @order.user.email %>
+    <br>
+    <strong> Order Placed :</strong>
+    <%= local_time(@order.created_at.to_formatted_s(:long_ordinal)) %>
+  </div>
+  <div id="order_inv_show">
+    <h2>Shipping Information</h2>
+
+      <strong>Shipping Address:</strong><br>
+      <%= @order.ship_street %>
+      <br>
+      <%= @order.ship_city %>,  <%= @order.ship_state %>
+      <br>
+      <%= @order.ship_zip %><br>
+      United States
+  </div>
+</div>

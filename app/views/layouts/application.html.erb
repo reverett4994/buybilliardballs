@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BuyBilliardsBalls</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display" rel="stylesheet">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id='header'>
+    <%= link_to 'BuyBilliardBalls',root_path,id:'logo'%>
+    <% if user_signed_in? %>
+      <div id='hello'>Welcome: <%=current_user.email%></div>
+      <% if current_user.cart %>
+      <div id='links'>
+          <%= link_to "Your Cart (#{number_to_currency(current_user.cart.total)})", current_user.cart,id:'cart_link' %>
+        <%else%>
+          Your Cart Is Empty!
+        <%end%>
+        <%= link_to 'Your Orders',orders_path%>
+        <%= link_to 'Contact Us',contact_path%>
+        <%= link_to 'Sign Out', destroy_user_session_path,method: :delete%>
+      <%else%>
+      <div id='links'>
+        <%= link_to 'Contact Us',contact_path%>
+        <%= link_to 'Sign In',new_user_session_path%>
+      <%end%>
+    </div>
+  </div>
+  <div id='wrapper'>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </div>
+</body>
+</html>
