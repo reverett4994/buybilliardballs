@@ -91,4 +91,20 @@ s3_credentials: {
   s3_region: ENV.fetch('AWS_REGION'),
     }
   }
+  #FOUND ON DEVISE PAGE TO USE WITH HEROKU
+  config.assets.initialize_on_precompile = false
+
+  config.action_mailer.default_url_options = { host: 'buybilliardballs.com'}
+  config.mailer_sender = 'BuyBilliardBalls.com'
+
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => 'heroku.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end
