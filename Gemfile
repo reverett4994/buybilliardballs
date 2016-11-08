@@ -61,3 +61,5 @@ gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2'
 
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'rails_12factor', group: :production
