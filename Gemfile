@@ -63,3 +63,10 @@ gem 'aws-sdk', '~> 2'
 gem 'will_paginate', '~> 3.1.0'
 
 gem 'rails_12factor', group: :production
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+
+
+gem 'owlcarousel-rails'

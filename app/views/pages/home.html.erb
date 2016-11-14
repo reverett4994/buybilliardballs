@@ -1,0 +1,30 @@
+<h1>HOME PAGE</h1>
+<div id="carousel_wrapper">
+  <div class="owl-carousel">
+    <div> <%=image_tag("pool_rack.jpg", alt: "Example Image")%> </div>
+    <div> <%=image_tag("tableandballs.jpg", alt: "Example Image")%> </div>
+    <div> <%=image_tag("9ball.jpg", alt: "Example Image")%> </div>
+    <div> <%=image_tag("billiards_slide.jpg", alt: "Example Image")%> </div>
+    <div> <%=image_tag("billiards-08.jpg", alt: "Example Image")%> </div>
+    <div> <%=image_tag("ontario-billiards.jpg", alt: "Example Image")%> </div>
+    <div> <%=image_tag("80573-004-7F9939A9.jpg", alt: "Example Image")%> </div>
+  </div>
+</div>
+
+<script>
+  // CAN CALL PLUG IN HERE!!!
+  $(".owl-carousel").owlCarousel({
+
+         navigation : true, // Show next and prev buttons
+         autoPlay : true,
+         slideSpeed : 300,
+         paginationSpeed : 400,
+         singleItem:true
+         // "singleItem:true" is a shortcut for:
+         // items : 1,
+         // itemsDesktop : false,
+         // itemsDesktopSmall : false,
+         // itemsTablet: false,
+         // itemsMobile : false
+});
+</script>

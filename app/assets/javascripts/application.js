@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= equire turbolinks                           REMOVED THE R TO LOAD OTHER FILES
+//= require owl.carousel
 //= require local_time
 //= require_tree .

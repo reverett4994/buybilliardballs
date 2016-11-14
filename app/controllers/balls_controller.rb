@@ -3,6 +3,15 @@ class BallsController < ApplicationController
   WillPaginate.per_page = 5
   # GET /balls
   # GET /balls.json
+  def home
+    @balls = Ball.all
+    @balls = @balls.order("number ASC")
+    @bottom5=@balls[0..4]
+    @bottom4=@balls[5..8]
+    @top3=@balls[9..11]
+    @top2=@balls[12..13]
+    @top1=@balls.last
+  end
   def index
     @balls = Ball.all
     @balls = @balls.order("number ASC")
