@@ -19,11 +19,13 @@
         <%else%>
           Your Cart Is Empty!
         <%end%>
+        <%= link_to 'All Balls',balls_path%>
         <%= link_to 'Your Orders',orders_path%>
         <%= link_to 'Contact Us',contact_path%>
         <%= link_to 'Sign Out', destroy_user_session_path,method: :delete%>
       <%else%>
       <div id='links'>
+        <%= link_to 'All Balls',balls_path%>
         <%= link_to 'Contact Us',contact_path%>
         <%= link_to 'Sign In',new_user_session_path%>
       <%end%>
