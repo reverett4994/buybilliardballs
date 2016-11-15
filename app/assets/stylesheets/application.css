@@ -1022,8 +1022,6 @@ select::-ms-expand {
     pointer-events: none;
 }
 
-/* FOR TEST PURPOSES ONLY */
-
 
 
 
@@ -1156,7 +1154,6 @@ select::-ms-expand {
   #order_inv_show{
     font-size: 17px;
   }
-}
 }
 @media only screen and (max-width: 700px){
   .trangle_pic{
