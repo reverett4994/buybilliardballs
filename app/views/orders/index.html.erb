@@ -23,6 +23,11 @@
         </div>
         <%end%>
       <%end%>
+
+      <%@counts_s = Hash.new 0%>
+      <%order.sticks.each do |word|%>
+        <%@counts[word.title] += 1%>
+      <%end%>
       <%if @counts_s != nil %>
         <%@counts_s.each do |ball,times|%>
         <div class="order_ball_wrapper">
