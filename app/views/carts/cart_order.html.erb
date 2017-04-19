@@ -51,6 +51,33 @@
           </div>
           </div>
         <%end%>
+
+        <%@counts_s.each do |ball,times|%>
+            <%@ball=Stick.where("title LIKE ?",ball)%>
+            <%@ball=@ball.last%>
+              <div class="cart_ball">
+                <%= image_tag @ball.image.url, class:'ball_pic_cart' %>
+                <div class="cart_ball_title">
+                  <%=ball%>
+                </div>
+                <div class="cart_ball_q">
+                  Quantity: &nbsp;<%=times%>
+              </div>
+                <%if times>1%>
+                  <div class="cart_ball_price_mutiple">
+                    <%=number_to_currency(@ball.price)%>&nbsp; x &nbsp;<%=times%>
+                  </div>
+                  <div class="cart_ball_price">
+                  Total: &nbsp;<%=number_to_currency(@ball.price * times)%><br>
+                <%else%>
+                <div class="cart_ball_price">
+                  Total: &nbsp;<%=number_to_currency(@ball.price * times)%><br>
+                <%end%>
+              </div>
+              </div>
+            <%end%>
+
+
         <div id="cart_total">
           Subtotal:&nbsp;&nbsp; <%= number_to_currency(@cart.total) %>
         </div>

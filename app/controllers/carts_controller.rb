@@ -33,9 +33,13 @@ class CartsController < ApplicationController
     @token= Braintree::ClientToken.generate
     @amount=params[:amount]
     @counts = Hash.new 0
+    @counts_s = Hash.new 0
     @cart=current_user.cart
     @cart.balls.each do |word|
       @counts[word.title] += 1
+    end
+    @cart.sticks.each do |word|
+      @counts_s[word.title] += 1
     end
   end
 
