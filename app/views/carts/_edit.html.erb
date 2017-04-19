@@ -29,4 +29,23 @@
     </div>
     <%@counter+=1%>
   <%end%>
+
+  <%@cart.sticks.each do |ball|%>
+    <%@ball=Stick.where("title LIKE ?",ball.title)%>
+    <%@ball=@ball.last%>
+    <div class="cart_ball">
+      <%= image_tag @ball.image.url, class:'ball_pic_cart' %>
+      <div class="cart_ball_title">
+        <%=ball.title%>
+      </div>
+      <div class="cart_ball_price">
+        <%=number_to_currency(@ball.price)%><br>
+      </div>
+      <div class="cart_remove">
+        <%=link_to 'Remove From Cart',mycart_remove_path(counter_s:ball.id,cart:@cart),data: { confirm: 'Are you sure?' }%><br>
+      </div>
+    </div>
+    <%@counter+=1%>
+  <%end%>
+
 <% end %>

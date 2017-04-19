@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104072628) do
+ActiveRecord::Schema.define(version: 20170419081429) do
 
   create_table "balls", force: :cascade do |t|
     t.integer  "number",             limit: 4
@@ -49,6 +49,11 @@ ActiveRecord::Schema.define(version: 20161104072628) do
     t.string   "user_id",    limit: 255
   end
 
+  create_table "carts_sticks", id: false, force: :cascade do |t|
+    t.integer "stick_id", limit: 4, null: false
+    t.integer "cart_id",  limit: 4, null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.decimal  "price",                    precision: 10, scale: 2
     t.string   "ship_street",  limit: 255
@@ -70,6 +75,25 @@ ActiveRecord::Schema.define(version: 20161104072628) do
 
   add_index "orders_balls", ["ball_id"], name: "index_orders_balls_on_ball_id", using: :btree
   add_index "orders_balls", ["order_id"], name: "index_orders_balls_on_order_id", using: :btree
+
+  create_table "orders_sticks", id: false, force: :cascade do |t|
+    t.integer "stick_id", limit: 4, null: false
+    t.integer "order_id", limit: 4, null: false
+  end
+
+  create_table "sticks", force: :cascade do |t|
+    t.string   "title",              limit: 255
+    t.string   "color",              limit: 255
+    t.decimal  "length",                         precision: 10
+    t.decimal  "weight",                         precision: 10
+    t.decimal  "price",                          precision: 10
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false

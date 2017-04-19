@@ -1,0 +1,56 @@
+<div id='show_wrapper'>
+  <%= image_tag @stick.image.url, id:'ball_pic' %>
+
+
+  <div id='show_desc'>
+    <p>
+      <strong><%= @stick.title %></strong>
+    </p>
+    <p>
+      <strong>Price:</strong>
+      <%= number_to_currency(@stick.price) %>
+    </p>
+    <p>
+      <strong>Color:</strong>
+      <%= @stick.color %>
+    </p>
+    <p>
+      <strong>Length:</strong>
+      <%= @stick.length %> in.
+    </p>
+    <p>
+      <strong>Weight:</strong>
+      <%= @stick.weight %> oz
+    </p>
+  </div>
+
+  <% if user_signed_in?%>
+    <%if current_user.email=="admin@billiardballs.com"%>
+      <%= link_to 'Edit', edit_stick_path(@stick) %>
+    <%end%>
+  <%end%>
+  <div id='add_to_cart'>
+    <%if user_signed_in?%>
+      <%if current_user.cart==nil%>
+      <%= form_tag(new_cart_path,method:"get") do %>
+          <%= hidden_field_tag 'stick', @stick.id%>
+          <%=select_tag "amount", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe%>
+          <%= button_tag(type:"submit",class:'button') do %>
+            <span>Add To Cart</span>
+          <%end%>
+        <%end%>
+      <%else%>
+        <%= form_tag(mycart_add_path,method:"get") do %>
+            <%= hidden_field_tag 'stick', @stick.id%>
+            <%=label_tag 'Quantity'%>
+            <%=select_tag "amount", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe%>
+            <%= button_tag(type:"submit",class:'button') do %>
+              <span>Add To Cart</span>
+            <%end%>
+          <%end%>
+      <%end%>
+    <%else%>
+      <h1>Sign In To Order!</h1>
+    <%end%>
+  </div>
+</div>

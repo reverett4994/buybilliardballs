@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sticks
   resources :carts
   resources :orders
   resources :balls

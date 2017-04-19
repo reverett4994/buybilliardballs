@@ -35,6 +35,11 @@ class OrdersController < ApplicationController
     @order.balls.each do |word|
       @counts[word.title] += 1
     end
+
+    @counts_s = Hash.new 0
+    @order.sticks.each do |word|
+      @counts[word.title] += 1
+    end
   end
 
   # GET /orders/new
@@ -166,6 +171,9 @@ class OrdersController < ApplicationController
         @cart.balls.each do |ball|
           @order.balls << Ball.find(ball.id)
         end
+        @cart.sticks.each do |stick|
+          @order.sticks << Stick.find(stick.id)
+        end
 
 
 
@@ -175,6 +183,7 @@ class OrdersController < ApplicationController
         #CREATE ORDER BEFORE EMPTIYING CART TO GET ITEMS ORDERD
         @cart.total=0
         @cart.balls=[]
+        @cart.sticks=[]
         @cart.save
         redirect_to @order
     else

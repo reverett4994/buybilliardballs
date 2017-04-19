@@ -12,7 +12,7 @@ class CartsController < ApplicationController
     @carts = Cart.all
   end
 
-  # GET /carts/1
+  # GET /carts/1n
   # GET /carts/1.json
   def show
     if current_user != @cart.user
@@ -21,6 +21,11 @@ class CartsController < ApplicationController
     @counts = Hash.new 0
     @cart.balls.each do |word|
       @counts[word.title] += 1
+    end
+
+    @counts_s = Hash.new 0
+    @cart.sticks.each do |word|
+      @counts_s[word.title] += 1
     end
   end
 
@@ -51,13 +56,24 @@ class CartsController < ApplicationController
     @carts = Cart.where("USER_ID LIKE ?",current_user.id)
     @cart=@carts.last
     @total=0
-    @ball=params[:ball]
-    @amount.times do
-      @cart.balls << Ball.find(@ball)
+    if params[:ball]==nil
+      @stick=params[:stick]
+      @amount.times do
+        @cart.sticks << Stick.find(@stick)
+      end
+    else
+      @ball=params[:ball]
+      @amount.times do
+        @cart.balls << Ball.find(@ball)
+      end
     end
     @cart.balls.each do |ball|
       @total+=ball.price
     end
+    @cart.sticks.each do |stick|
+      @total+=stick.price
+    end
+
     @cart.total=@total
     respond_to do |format|
       if @cart.save
@@ -110,6 +126,7 @@ class CartsController < ApplicationController
   def destroy
     @cart.total=0
     @cart.balls=[]
+    @cart.sticks=[]
     @cart.save
     respond_to do |format|
       format.html { redirect_to balls_url, notice: 'Cart was successfully Emptied.' }
@@ -119,17 +136,32 @@ class CartsController < ApplicationController
 
   def remove
     @total=0
-    @counter=params[:counter]
-    @carts=Cart.where("ID LIKE ?",params[:cart])
-    @cart=@carts.last
-    @original=@cart.balls.length
-    @original=@original-1
-    @ball=Ball.find(@counter)
-    @cart.balls.delete(@ball)
-    @cart.save
-    while @cart.balls.length < @original
-        @cart.balls << Ball.find(@ball)
+    if params[:counter]==nil
+      @counter=params[:counter_s]
+      @carts=Cart.where("ID LIKE ?",params[:cart])
+      @cart=@carts.last
+      @original=@cart.sticks.length
+      @original=@original-1
+      @ball=Stick.find(@counter)
+      @cart.sticks.delete(@ball)
+      @cart.save
+      while @cart.sticks.length < @original
+          @cart.sticks << Stick.find(@ball)
+      end
+    else
+      @counter=params[:counter]
+      @carts=Cart.where("ID LIKE ?",params[:cart])
+      @cart=@carts.last
+      @original=@cart.balls.length
+      @original=@original-1
+      @ball=Ball.find(@counter)
+      @cart.balls.delete(@ball)
+      @cart.save
+      while @cart.balls.length < @original
+          @cart.balls << Ball.find(@ball)
+      end
     end
+
 
     @cart.balls.each do |ball|
       @total+=ball.price

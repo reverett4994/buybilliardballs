@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sticks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Color</th>
+      <th>Length</th>
+      <th>Weight</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sticks.each do |stick| %>
+      <tr>
+        <td><%= stick.title %></td>
+        <td><%= stick.color %></td>
+        <td><%= stick.length %></td>
+        <td><%= stick.weight %></td>
+        <td><%= stick.price %></td>
+        <td><%= link_to 'Show', stick %></td>
+        <td><%= link_to 'Edit', edit_stick_path(stick) %></td>
+        <td><%= link_to 'Destroy', stick, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stick', new_stick_path %>

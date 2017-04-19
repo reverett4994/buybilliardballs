@@ -1,0 +1,38 @@
+<%= form_for(@stick) do |f| %>
+  <% if @stick.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stick.errors.count, "error") %> prohibited this stick from being saved:</h2>
+
+      <ul>
+      <% @stick.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br>
+    <%= f.text_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :length %><br>
+    <%= f.text_field :length %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br>
+    <%= f.text_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <%= f.file_field :image %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
