@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
 
     @counts_s = Hash.new 0
     @order.sticks.each do |word|
-      @counts[word.title] += 1
+      @counts_s[word.title] += 1
     end
   end
 
