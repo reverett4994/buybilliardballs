@@ -13,25 +13,25 @@
       <%order.balls.each do |word|%>
         <%@counts[word.title] += 1%>
       <%end%>
-
-      <%@counts&.each do |ball,times|%>
-      <div class="order_ball_wrapper">
-        <%@ball=Ball.where("title LIKE ?",ball)%>
-        <%@ball=@ball.last%>
-        <%= image_tag @ball.image.url %>
-        <p><%=ball%></p><p class='order_q'>Quantity: &nbsp;<%=times%></p>
-      </div>
-
+      <%if @counts != nil %>
+        <%@counts.each do |ball,times|%>
+        <div class="order_ball_wrapper">
+          <%@ball=Ball.where("title LIKE ?",ball)%>
+          <%@ball=@ball.last%>
+          <%= image_tag @ball.image.url %>
+          <p><%=ball%></p><p class='order_q'>Quantity: &nbsp;<%=times%></p>
+        </div>
+        <%end%>
       <%end%>
-
-      <%@counts_s&.each do |ball,times|%>
-      <div class="order_ball_wrapper">
-        <%@ball=Stick.where("title LIKE ?",ball)%>
-        <%@ball=@ball.last%>
-        <%= image_tag @ball.image.url %>
-        <p><%=ball%></p><p class='order_q'>Quantity: &nbsp;<%=times%></p>
-      </div>
-
+      <%if @counts_s != nil %>
+        <%@counts_s.each do |ball,times|%>
+        <div class="order_ball_wrapper">
+          <%@ball=Stick.where("title LIKE ?",ball)%>
+          <%@ball=@ball.last%>
+          <%= image_tag @ball.image.url %>
+          <p><%=ball%></p><p class='order_q'>Quantity: &nbsp;<%=times%></p>
+        </div>
+        <%end%>
       <%end%>
 
     </div>
