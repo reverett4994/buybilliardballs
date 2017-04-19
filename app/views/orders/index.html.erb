@@ -14,7 +14,7 @@
         <%@counts[word.title] += 1%>
       <%end%>
 
-      <%@counts.each do |ball,times|%>
+      <%@counts&.each do |ball,times|%>
       <div class="order_ball_wrapper">
         <%@ball=Ball.where("title LIKE ?",ball)%>
         <%@ball=@ball.last%>
@@ -24,7 +24,7 @@
 
       <%end%>
 
-      <%@counts_s.each do |ball,times|%>
+      <%@counts_s&.each do |ball,times|%>
       <div class="order_ball_wrapper">
         <%@ball=Stick.where("title LIKE ?",ball)%>
         <%@ball=@ball.last%>
