@@ -1,5 +1,10 @@
 
 <div id="place_order_div">
+  <h1>Shipping Type</h1>
+  <%=label_tag 'Standard Shipping'%>
+  <%=radio_button_tag 'shipping','s_shipping',true%>
+  <%=label_tag 'Express Shipping (+$6.00)'%>
+  <%=radio_button_tag 'shipping','e_shipping'%>
   <h1>Shipping Info</h1>
   <form id="checkout" method="post" action="/checkout">
     <%= label_tag(:first_name, "First Name") %><br>
