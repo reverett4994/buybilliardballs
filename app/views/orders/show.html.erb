@@ -14,6 +14,9 @@
         <%@ball=@ball.last%>
         <p class="order_ball"><%=times%>x&nbsp; <%=ball%></p> <p class='order_ball_price'><%=number_to_currency(@ball.price*times)%></p><br>
     <%end%>
+    <%if @order.chalk==true%>
+      <p class="order_ball">1x&nbsp; Chalk</p> <p class='order_ball_price'>$1.00</p><br>
+    <%end%>
         <p class="order_ball"><strong>Total:</strong></p> <p class='order_ball_price'><strong><%=number_to_currency(@order.price)%></strong></p><br>
   </div>
   <div id="order_inv_show">
