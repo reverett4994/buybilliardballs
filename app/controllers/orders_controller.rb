@@ -174,7 +174,7 @@ class OrdersController < ApplicationController
         @cart.sticks.each do |stick|
           @order.sticks << Stick.find(stick.id)
         end
-
+        @order.chalk=@cart.chalk
 
 
         @order.save!
@@ -184,6 +184,7 @@ class OrdersController < ApplicationController
         @cart.total=0
         @cart.balls=[]
         @cart.sticks=[]
+        @cart.chalk=false
         @cart.save
         redirect_to @order
     else

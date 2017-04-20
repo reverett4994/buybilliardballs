@@ -56,6 +56,20 @@
           </div>
         <%end%>
     <%end%>
+    <% if @cart.chalk==true%>
+      <div class="cart_ball">
+        <%= image_tag "chalk.jpg", class:'ball_pic_cart' %>
+        <div class="cart_ball_title">
+          Billiard Chalk
+        </div>
+        <div class="cart_ball_q">
+          Quantity: &nbsp;1
+        </div>
+        <div class="cart_ball_price">
+          Total: &nbsp;$1.00<br>
+        </div>
+      </div>
+    <%end%>
 
 
     <div id="cart_total">

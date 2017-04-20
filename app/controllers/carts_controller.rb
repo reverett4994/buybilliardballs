@@ -60,6 +60,9 @@ class CartsController < ApplicationController
     @carts = Cart.where("USER_ID LIKE ?",current_user.id)
     @cart=@carts.last
     @total=0
+    if params[:chalk]!=nil
+      @cart.chalk=true
+    end
     if params[:ball]==nil
       @stick=params[:stick]
       @amount.times do
@@ -77,6 +80,9 @@ class CartsController < ApplicationController
     @cart.sticks.each do |stick|
       @total+=stick.price
     end
+    if @cart.chalk==true
+      @total+=1
+    end
 
     @cart.total=@total
     respond_to do |format|
@@ -88,6 +94,7 @@ class CartsController < ApplicationController
         format.json { render json: @cart.errors, status: :unprocessable_entity }
       end
     end
+
   end
   # POST /carts
   # POST /carts.json
@@ -131,6 +138,7 @@ class CartsController < ApplicationController
     @cart.total=0
     @cart.balls=[]
     @cart.sticks=[]
+    @cart.chalk=false
     @cart.save
     respond_to do |format|
       format.html { redirect_to balls_url, notice: 'Cart was successfully Emptied.' }
@@ -153,22 +161,35 @@ class CartsController < ApplicationController
           @cart.sticks << Stick.find(@ball)
       end
     else
-      @counter=params[:counter]
-      @carts=Cart.where("ID LIKE ?",params[:cart])
-      @cart=@carts.last
-      @original=@cart.balls.length
-      @original=@original-1
-      @ball=Ball.find(@counter)
-      @cart.balls.delete(@ball)
-      @cart.save
-      while @cart.balls.length < @original
-          @cart.balls << Ball.find(@ball)
+      if params[:counter]=="chalk"
+        @carts=Cart.where("ID LIKE ?",params[:cart])
+        @cart=@carts.last
+        @cart.chalk=false
+        @cart.save
+      else
+        @counter=params[:counter]
+        @carts=Cart.where("ID LIKE ?",params[:cart])
+        @cart=@carts.last
+        @original=@cart.balls.length
+        @original=@original-1
+        @ball=Ball.find(@counter)
+        @cart.balls.delete(@ball)
+        @cart.save
+        while @cart.balls.length < @original
+            @cart.balls << Ball.find(@ball)
+        end
       end
     end
 
 
     @cart.balls.each do |ball|
       @total+=ball.price
+    end
+    @cart.sticks.each do |stick|
+      @total+=stick.price
+    end
+    if @cart.chalk==true
+      @total+=1
     end
     @cart.total=@total
     @cart.save

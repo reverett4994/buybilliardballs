@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419081429) do
+ActiveRecord::Schema.define(version: 20170420065804) do
 
   create_table "balls", force: :cascade do |t|
     t.integer  "number",             limit: 4
@@ -44,9 +44,10 @@ ActiveRecord::Schema.define(version: 20170419081429) do
 
   create_table "carts", force: :cascade do |t|
     t.decimal  "total",                  precision: 10, scale: 2
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
     t.string   "user_id",    limit: 255
+    t.boolean  "chalk",                                           default: false
   end
 
   create_table "carts_sticks", id: false, force: :cascade do |t|
@@ -61,11 +62,12 @@ ActiveRecord::Schema.define(version: 20170419081429) do
     t.string   "ship_state",   limit: 255
     t.string   "ship_zip",     limit: 255
     t.decimal  "shipping",                 precision: 10, scale: 2
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.datetime "created_at",                                                        null: false
+    t.datetime "updated_at",                                                        null: false
     t.string   "user_id",      limit: 255
     t.string   "sale_id",      limit: 255
     t.string   "payment_type", limit: 255
+    t.boolean  "chalk",                                             default: false
   end
 
   create_table "orders_balls", id: false, force: :cascade do |t|

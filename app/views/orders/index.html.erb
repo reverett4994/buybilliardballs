@@ -38,7 +38,12 @@
         </div>
         <%end%>
       <%end%>
-
+      <%if order.chalk==true%>
+      <div class="order_ball_wrapper">
+        <%= image_tag "chalk.jpg"%>
+        <p>Chalk</p><p class='order_q'>Quantity: &nbsp;1</p>
+      </div>
+      <%end%>
     </div>
   <%end%>
 </div>

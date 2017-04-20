@@ -47,5 +47,19 @@
     </div>
     <%@counter+=1%>
   <%end%>
+  <% if @cart.chalk==true%>
+    <div class="cart_ball">
+      <%= image_tag "chalk.jpg", class:'ball_pic_cart' %>
+      <div class="cart_ball_title">
+        Billiard Chalk
+      </div>
+      <div class="cart_ball_price">
+        Total: &nbsp;$1.00<br>
+      </div>
+      <div class="cart_remove">
+        <%=link_to 'Remove From Cart',mycart_remove_path(counter:"chalk",cart:@cart),data: { confirm: 'Are you sure?' }%><br>
+      </div>
+    </div>
+  <%end%>
 
 <% end %>

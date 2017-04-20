@@ -44,6 +44,8 @@
             <%= hidden_field_tag 'stick', @stick.id%>
             <%=label_tag 'Quantity'%>
             <%=select_tag "amount", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe%>
+            <%=label_tag 'Include Chalk for extra $1.00?'%>
+            <%=check_box_tag 'chalk'%><br>
             <%= button_tag(type:"submit",class:'button') do %>
               <span>Add To Cart</span>
             <%end%>
