@@ -122,6 +122,7 @@ $('input:radio[name="shipping"]').change(
         if ($(this).val() == 'e_shipping') {
             var total=$("#cart_total").text()
             total.replace(/[$,]+/g,"");
+            console.log(total);
             var num_total = parseInt(total)+ 6
             num_total=num_total.toString()
             $("#cart_total").text("$"+num_total)
