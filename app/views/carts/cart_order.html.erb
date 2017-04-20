@@ -117,21 +117,28 @@ var clientToken = "<%= @token %>";
 braintree.setup(clientToken, "dropin", {
   container: "payment-form"
 });
+
+$(document).ready(function(){
+  if($('input[name="shipping"]:checked').val() === "e_shipping")
+    var total = gon.total
+    console.log(total);
+    var num_total = total+ 6;
+    num_total=num_total.toString();
+    $("#cart_total").text("SUBTOTAL:  $"+num_total);
+}
 $('input:radio[name="shipping"]').change(
     function(){
         if ($(this).val() == 'e_shipping') {
-            var temp_total=$("#cart_total").text()
             var total = gon.total
             console.log(total);
-            var num_total = parseInt(total)+ 6;
+            var num_total = total+ 6;
             num_total=num_total.toString();
             $("#cart_total").text("SUBTOTAL:  $"+num_total);
         }
         else {
-          var temp_total=$("#cart_total").text()
           var total = gon.total
           console.log(total);
-          var num_total = parseInt(total)- 6;
+          var num_total = total;
           num_total=num_total.toString();
           $("#cart_total").text("SUBTOTAL:  $"+num_total);
         }
