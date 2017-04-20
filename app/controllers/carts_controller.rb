@@ -42,6 +42,7 @@ class CartsController < ApplicationController
       @counts_s[word.title] += 1
     end
      gon.total = @cart.total
+     gon.express=6
   end
 
   # GET /carts/new
