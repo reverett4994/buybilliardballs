@@ -122,7 +122,7 @@ $(document).ready(function(){
   if($('input[name="shipping"]:checked').val() === "e_shipping"){
     var total = gon.total
     console.log("sdfsdf");
-    var num_total = total+ 6;
+    var num_total = total+ 6.00;
     num_total=num_total.toString();
     $("#cart_total").text("SUBTOTAL:  $"+num_total);
   }
@@ -132,7 +132,7 @@ $('input:radio[name="shipping"]').change(
         if ($(this).val() == 'e_shipping') {
             var total = gon.total
             console.log(total);
-            var num_total = total+ 6;
+            var num_total = total+ 6.00;
             num_total=num_total.toString();
             $("#cart_total").text("SUBTOTAL:  $"+num_total);
         }
