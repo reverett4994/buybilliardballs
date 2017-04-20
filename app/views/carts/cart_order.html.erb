@@ -123,6 +123,7 @@ $(document).ready(function(){
     var total = gon.total
     console.log("sdfsdf");
     var num_total = parseFloat(total)+ parseFloat(gon.express);
+    num_total=num_total.toFixed(2)
     num_total=num_total.toString();
     $("#cart_total").text("SUBTOTAL:  $"+num_total);
   }
@@ -133,6 +134,7 @@ $('input:radio[name="shipping"]').change(
             var total = gon.total
             console.log(total);
             var num_total = parseFloat(total)+ parseFloat(gon.express);
+            num_total=num_total.toFixed(2)
             num_total=num_total.toString();
             $("#cart_total").text("SUBTOTAL:  $"+num_total);
         }
@@ -140,6 +142,7 @@ $('input:radio[name="shipping"]').change(
           var total = gon.total
           console.log(total);
           var num_total = total;
+          num_total=num_total.toFixed(2)
           num_total=num_total.toString();
           $("#cart_total").text("SUBTOTAL:  $"+num_total);
         }
