@@ -41,6 +41,7 @@ class CartsController < ApplicationController
     @cart.sticks.each do |word|
       @counts_s[word.title] += 1
     end
+     gon.total = @cart.total
   end
 
   # GET /carts/new

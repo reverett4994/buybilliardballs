@@ -121,7 +121,7 @@ $('input:radio[name="shipping"]').change(
     function(){
         if ($(this).val() == 'e_shipping') {
             var temp_total=$("#cart_total").text()
-            var total = Number(temp_total.replace(/[^0-9\.]+/g,""));
+            var total = gon.total
             console.log(total);
             var num_total = parseInt(total)+ 6;
             num_total=num_total.toString();
@@ -129,7 +129,7 @@ $('input:radio[name="shipping"]').change(
         }
         else {
           var temp_total=$("#cart_total").text()
-          var total = Number(temp_total.replace(/[^0-9\.]+/g,""));
+          var total = gon.total
           console.log(total);
           var num_total = parseInt(total)- 6;
           num_total=num_total.toString();
