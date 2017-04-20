@@ -142,7 +142,6 @@ $('input:radio[name="shipping"]').change(
           var total = gon.total
           console.log(total);
           var num_total = total;
-          num_total=num_total.toFixed(2)
           num_total=num_total.toString();
           $("#cart_total").text("SUBTOTAL:  $"+num_total);
         }
