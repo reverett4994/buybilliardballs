@@ -155,6 +155,39 @@ a{
         transform: rotate(360deg);
 
 }
+
+.cue_listing{
+  width: 80%;
+  background-color: #f6e1bc;
+  margin-bottom: 15px;
+  border-bottom: 5px solid #333;
+  border-left: 2px solid #333;
+  border-right: 2px solid #333;
+  height: 215px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  border-radius: 2%;
+}
+.cue_listing img{
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+          transition:         transform .5s ease-in-out;
+  object-fit: cover;
+  object-position: center;
+  display: inline-block;
+  float: left;
+  margin-right: 35px;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+.cue_listing:hover  img{
+
+}
+
+
 #listing_title{
   text-decoration: none;
   font-family: 'Playfair Display', serif;
@@ -193,6 +226,22 @@ a{
 	width: 100%;
 	background: #800000;
 }
+
+.listing:hover .sliding-middle-out:after {
+	width: 100%;
+	background: #800000;
+}
+.cue_listing:hover .sliding-middle-out:after {
+	width: 100%;
+	background: #800000;
+}
+
+.cue_listing:hover .sliding-middle-out:after {
+	width: 100%;
+	background: #800000;
+}
+
+
 
 #page_wrapper{
   display: block;
@@ -239,6 +288,12 @@ a{
     height: 1%; }
   *:first-child + html .digg_pagination {
     overflow: hidden; }
+
+    #coming_soon{
+      text-align: center;
+      font-size: 16px;
+    }
+
 /*******************************************BALL LISTINGS******************************************************/
 
 
@@ -264,6 +319,22 @@ a{
   margin-left: 15px;
   margin-top: 5px;
 }
+
+#cue_pic{
+  width: 450px;
+  height: 450px;
+  border-radius: 10%;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+          transition:         transform .5s ease-in-out;
+  object-fit: cover;
+  object-position: center;
+  display: inline-block;
+  float: left;
+  margin-right: 55px;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
 #ball_pic:hover{
   -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
@@ -1091,6 +1162,12 @@ select::-ms-expand {
     margin-left: auto;
     margin-right: auto;
   }
+  #cue_pic{
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
   #show_desc{
     text-align: center;
   }
@@ -1110,6 +1187,10 @@ select::-ms-expand {
 }
 @media only screen and (max-width: 850px){
   .listing{
+    width: 100%;
+    overflow: hidden;
+  }
+  .cue_listing{
     width: 100%;
     overflow: hidden;
   }
@@ -1174,6 +1255,12 @@ select::-ms-expand {
     width: 300px;
   }
   .listing img{
+    height: 100px;
+    width: 100px;
+    margin-bottom: 100%;
+    margin-top: 50px;
+  }
+  .cue_listing img{
     height: 100px;
     width: 100px;
     margin-bottom: 100%;

@@ -4,9 +4,9 @@
 
     <% @sticks.each do |stick| %>
     <%= link_to stick do %>
-      <div class='listing'>
-        <%= image_tag stick.image.url %>
-        <div id='listing_title' class='sliding-middle-out'><%= stick.title %></div>
+      <div class='cue_listing'>
+        <%= image_tag stick.image.url%>
+        <div id='listing_title' class='sliding-middle-out'><%= truncate(stick.title , length: 16) %></div>
         <div class='listing_desc'>
           <p><div class='sliding-middle-out'><strong>Price:</strong></div> <%= number_to_currency(stick.price) %></p>
           <p><div class='sliding-middle-out'><strong>Color:</strong></div> <%= stick.color %></p>
@@ -19,4 +19,4 @@
 
 <br>
 
-<%= link_to 'New Stick', new_stick_path %>
+<p id="coming_soon">more coming soon!</p>
